@@ -15,6 +15,7 @@ import com.google.accompanist.insets.ProvideWindowInsets
 import emperorfin.android.dummyjsonusers.ui.navigation.Destinations.ROUTE_USERS
 import emperorfin.android.dummyjsonusers.ui.navigation.Destinations.ROUTE_USER_DETAILS
 import emperorfin.android.dummyjsonusers.ui.navigation.ScreenArgs.SCREEN_USER_DETAILS_USER_ID
+import emperorfin.android.dummyjsonusers.ui.screen.userdetails.UserDetailsScreen
 import emperorfin.android.dummyjsonusers.ui.screen.users.UsersScreen
 
 
@@ -58,10 +59,10 @@ fun NavGraph(
 
                 val userId: String = backStackEntry.arguments?.getString(SCREEN_USER_DETAILS_USER_ID)!!
 
-//                UserDetailsScreen(
-//                    navigationActions = navActions,
-//                    id = userId,
-//                )
+                UserDetailsScreen(
+                    navigationActions = navActions,
+                    userId = userId,
+                )
             }
         }
     }

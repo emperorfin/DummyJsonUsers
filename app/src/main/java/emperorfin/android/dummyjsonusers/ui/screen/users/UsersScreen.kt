@@ -152,14 +152,14 @@ private fun Content(
 //                            }
 
 //                            navigationActions?.navigateToUserDetailsScreen(user.id.toString()) // Works
-//                            navigationActions?.navigateToUserDetailsScreen(it.toString())
+                            navigationActions?.navigateToUserDetailsScreen(it.toString())
 
                             //remv
-                            Toast.makeText(
-                                context,
-                                it.toString(), // Or user.id.toString()
-                                Toast.LENGTH_SHORT
-                            ).show()
+//                            Toast.makeText(
+//                                context,
+//                                it.toString(), // Or user.id.toString()
+//                                Toast.LENGTH_SHORT
+//                            ).show()
                         }
                     )
                 }

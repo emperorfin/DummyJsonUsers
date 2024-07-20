@@ -3,4 +3,6 @@
 
     <string name="content_description_error_message">Error message</string>
     <string name="btn_retry">Retry</string>
+    <string name="about">About</string>
+    <string name="other_details">Other Details</string>
 </resources>
