@@ -5,4 +5,38 @@
     <string name="btn_retry">Retry</string>
     <string name="about">About</string>
     <string name="other_details">Other Details</string>
+
+    <string name="error_memory_user_list_not_available">User list not available memory error.</string>
+    <string name="error_local_user_list_not_available">User list not available local error.</string>
+    <string name="error_remote_user_list_not_available">User list not available remote error.</string>
+    <string name="error_memory_user">User memory error.</string>
+    <string name="error_local_user">User local error.</string>
+    <string name="error_remote_user">User remote error.</string>
+    <string name="error_memory_get_user">Get user memory error.</string>
+    <string name="error_local_get_user">Get user local error.</string>
+    <string name="error_remote_get_user">Get user remote error.</string>
+    <string name="error_memory_insert_user">Insert user memory error.</string>
+    <string name="error_local_insert_user">Insert user local error.</string>
+    <string name="error_remote_insert_user">Insert user remote error.</string>
+    <string name="error_memory_update_user">Update user memory error.</string>
+    <string name="error_local_update_user">Update user local error.</string>
+    <string name="error_remote_update_user">Update user remote error.</string>
+    <string name="error_memory_delete_user">Delete user memory error.</string>
+    <string name="error_local_delete_user">Delete user local error.</string>
+    <string name="error_remote_delete_user">Delete user remote error.</string>
+    <string name="error_memory_non_existent_user_data">Non existent user data memory error.</string>
+    <string name="error_local_non_existent_user_data">Non existent user data local error.</string>
+    <string name="error_remote_non_existent_user_data">Non existent user data remote error.</string>
+    <string name="error_repository_get_user">Get user repository error.</string>
+    <string name="error_repository_insert_user">Insert user repository error.</string>
+    <string name="error_repository_delete_user">Delete user repository error.</string>
+
+    <string name="exception_occurred_remote">Remote exception occurred.</string>
+    <string name="error_cant_force_refresh_users_remote_data_source_unavailable">Can\'t force users refresh. Remote data source is unavailable.</string>
+    <string name="exception_occurred_local">Local exception occurred.</string>
+    <string name="error_fetching_from_remote_and_local">Error fetching from remote and local.</string>
+
+    <string name="message_no_internet_loading_cached_users">No internet connectivity. Loading saved users…</string>
+    <string name="message_no_internet_searching_cached_users">No internet connectivity. Searching saved users…</string>
+    <string name="message_no_internet_connectivity">No internet connectivity.</string>
 </resources>
