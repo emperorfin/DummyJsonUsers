@@ -19,8 +19,12 @@ import retrofit2.http.Query
 
 interface UserApi : IUserDao {
 
-//    @GET("users?limit=10&")
-    @GET("/users?limit=10")
+    companion object {
+        const val PAGE_LIMIT: Int = IUserDao.REMOTE_PAGE_LIMIT
+    }
+
+//    @GET("/users?limit=10&")
+    @GET("/users?limit=$PAGE_LIMIT&")
     override suspend fun getRemoteUsers(@Query("skip") skip: String): Response<UserSearchResponse>
 
     @GET("/users/{id}")

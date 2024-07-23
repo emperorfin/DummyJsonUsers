@@ -30,6 +30,7 @@
     <string name="error_repository_get_user">Get user repository error.</string>
     <string name="error_repository_insert_user">Insert user repository error.</string>
     <string name="error_repository_delete_user">Delete user repository error.</string>
+    <string name="error_repository_user_list_not_available">User list not available repository error.</string>
 
     <string name="exception_occurred_remote">Remote exception occurred.</string>
     <string name="error_cant_force_refresh_users_remote_data_source_unavailable">Can\'t force users refresh. Remote data source is unavailable.</string>
@@ -39,4 +40,5 @@
     <string name="message_no_internet_loading_cached_users">No internet connectivity. Loading saved users…</string>
     <string name="message_no_internet_searching_cached_users">No internet connectivity. Searching saved users…</string>
     <string name="message_no_internet_connectivity">No internet connectivity.</string>
+    <string name="message_max_num_of_users_retrieved">Maximum number of users retrieved.</string>
 </resources>

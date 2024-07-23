@@ -27,6 +27,7 @@ import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.palette.graphics.Palette
 import com.skydoves.landscapist.palette.BitmapPalette
 import emperorfin.android.dummyjsonusers.temp.User
+import emperorfin.android.dummyjsonusers.ui.model.user.UserUiModel
 
 
 /*
@@ -38,9 +39,9 @@ import emperorfin.android.dummyjsonusers.temp.User
 
 @Composable
 fun UserListItem(
-    user: User,
-//    user: UserUiModel,
-    onClick: (Int) -> Unit,
+//    user: User,
+    user: UserUiModel,
+    onClick: (String) -> Unit,
     modifier: Modifier = Modifier
 ) {
     Surface(

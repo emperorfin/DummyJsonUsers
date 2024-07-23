@@ -14,6 +14,12 @@ import retrofit2.Response
 
 interface IUserDao {
 
+    companion object {
+        const val REMOTE_PAGE_LIMIT: Int = 15
+        const val REMOTE_NUM_OF_USERS_TO_SKIP = REMOTE_PAGE_LIMIT
+        const val REMOTE_TOTAL_USERS = 208
+    }
+
     suspend fun countAllUsers(): Int
 
     suspend fun getUsers(): List<UserEntity>

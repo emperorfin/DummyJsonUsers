@@ -136,4 +136,9 @@ sealed class UserFailure(
         @StringRes override val message: Int = R.string.error_repository_delete_user,
         override val cause: Throwable? = null
     ) : UserFailure(message = message, cause = cause)
+
+    class UserListNotAvailableRepositoryError(
+        @StringRes override val message: Int = R.string.error_repository_user_list_not_available,
+        override val cause: Throwable? = null
+    ) : UserFailure(message = message, cause = cause)
 }

@@ -23,7 +23,9 @@ android {
             useSupportLibrary true
         }
 
-        buildConfigField "String", "DUMMY_JSON_BASE_URL", "\"https://www.dummyjson.com\""
+        buildConfigField "String", "DUMMY_JSON_BASE_URL", "\"https://dummyjson.com\""
+//        buildConfigField "String", "PAGE_LIMIT", "\"15\""
+//        buildConfigField "int", "PAGE_LIMIT", "15"
     }
 
     buildTypes {

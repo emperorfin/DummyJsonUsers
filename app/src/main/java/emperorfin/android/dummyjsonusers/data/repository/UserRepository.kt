@@ -68,9 +68,16 @@ data class UserRepository @Inject constructor(
             (newUsers as? ResultData.Success)?.let {
                 if (it.data.isNotEmpty()) { // it.data.isEmpty()
                     return@withContext ResultData.Success(it.data)
+                } else {
+                    // TODO: Note new impl line addition
+                    return@withContext ResultData.Error(
+                        failure = UserFailure.UserListNotAvailableRepositoryError()
+                    )
                 }
             }
 
+            // TODO: Check to be sure newUsers isn't a type other than ResultData.Error.
+            //      If it is, return an explicit ResultData.Error objet.
             return@withContext newUsers as ResultData.Error
         }
     }
