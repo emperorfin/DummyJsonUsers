@@ -18,6 +18,8 @@ import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -30,17 +32,20 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.palette.graphics.Palette
 import com.google.accompanist.flowlayout.FlowRow
 import com.skydoves.landscapist.CircularReveal
 import com.skydoves.landscapist.palette.BitmapPalette
 import emperorfin.android.dummyjsonusers.R
+import emperorfin.android.dummyjsonusers.domain.uilayer.event.input.UserParams
 import emperorfin.android.dummyjsonusers.temp.User
 import emperorfin.android.dummyjsonusers.ui.component.AppBarWithArrow
 import emperorfin.android.dummyjsonusers.ui.component.EmptyContent
 import emperorfin.android.dummyjsonusers.ui.component.LoadingContent
 import emperorfin.android.dummyjsonusers.ui.component.LoadingIndicator
 import emperorfin.android.dummyjsonusers.ui.component.NetworkImage
+import emperorfin.android.dummyjsonusers.ui.model.user.UserUiModel
 import emperorfin.android.dummyjsonusers.ui.navigation.NavigationActions
 import emperorfin.android.dummyjsonusers.ui.screen.userdetails.stateholders.UserDetailsUiState
 import emperorfin.android.dummyjsonusers.ui.screen.userdetails.stateholders.UserDetailsViewModel
@@ -61,22 +66,22 @@ fun UserDetailsScreen(
     context: Context = LocalContext.current,
     navigationActions: NavigationActions?,
     userId: String,
-    viewModel: UserDetailsViewModel = UserDetailsViewModel(),
-//    viewModel: UserDetailsViewModel = hiltViewModel(),
+//    viewModel: UserDetailsViewModel = UserDetailsViewModel(),
+    viewModel: UserDetailsViewModel = hiltViewModel(),
 ) {
     val snackbarHostState = remember { SnackbarHostState() }
 
-    val uiState = UserDetailsUiState()
-//    val uiState by viewModel.uiState.collectAsState()
+//    val uiState = UserDetailsUiState()
+    val uiState by viewModel.uiState.collectAsState()
 
     val user = uiState.user
 
-//    LaunchedEffect(key1 = userId) {
-//        viewModel.loadUser(
-//            params = UserParams(id = userId),
-//            isRefresh = false
-//        )
-//    }
+    LaunchedEffect(key1 = userId) {
+        viewModel.loadUser(
+            params = UserParams(id = userId),
+            isRefresh = false
+        )
+    }
 
     Scaffold(
         snackbarHost = { SnackbarHost(snackbarHostState) },
@@ -100,13 +105,13 @@ fun UserDetailsScreen(
         )
 
         // Check for SnackBar messages to display on the screen
-//        uiState.messageSnackBar?.let { message ->
-//            val snackBarText = stringResource(message)
-//            LaunchedEffect(snackbarHostState, viewModel, message, snackBarText) {
-//                snackbarHostState.showSnackbar(message = snackBarText)
-//                viewModel.snackBarMessageShown()
-//            }
-//        }
+        uiState.messageSnackBar?.let { message ->
+            val snackBarText = stringResource(message)
+            LaunchedEffect(snackbarHostState, viewModel, message, snackBarText) {
+                snackbarHostState.showSnackbar(message = snackBarText)
+                viewModel.snackBarMessageShown()
+            }
+        }
 
     }
 }
@@ -115,8 +120,8 @@ fun UserDetailsScreen(
 private fun Content(
     modifier: Modifier,
     userId: String,
-    user: User?,
-//    user: UserUiModel?,
+//    user: User?,
+    user: UserUiModel?,
     viewModel: UserDetailsViewModel,
     uiState: UserDetailsUiState
 ) {
@@ -131,10 +136,10 @@ private fun Content(
             EmptyContent(
                 errorLabel = errorMessage ?: R.string.content_description_error_message,
                 onRetry = {
-//                    viewModel.loadUser(
-//                        params = UserParams(id = userId),
-//                        isRefresh = false
-//                    )
+                    viewModel.loadUser(
+                        params = UserParams(id = userId),
+                        isRefresh = false
+                    )
                 }
             )
         },
@@ -171,8 +176,8 @@ private fun Content(
 
 @Composable
 private fun Header(
-    user: User
-//    user: UserUiModel
+//    user: User
+    user: UserUiModel
 ) {
 
     Column {
@@ -258,8 +263,8 @@ private fun Header(
 
 @Composable
 private fun Summary(
-    user: User
-//    user: UserUiModel
+//    user: User
+    user: UserUiModel
 ) {
 
     val gender = user.gender
@@ -370,8 +375,8 @@ private fun Keyword(keyword: String) {
 
 @Composable
 private fun OtherDetails(
-    user: User
-//    user: UserUiModel
+//    user: User
+    user: UserUiModel
 ) {
 
     val contact = "${user.email} \n${user.phone}"
